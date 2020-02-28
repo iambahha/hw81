@@ -14,22 +14,13 @@ class ShortUrl extends Component {
 
 	submitFormHandler = event => {
 		event.preventDefault();
+
 		this.props.createShortLink(this.state);
 		this.setState({originalUrl: ''});
 	};
 
 	render() {
 		const shortLink = 'http://localhost:8000/' + this.props.shortUrl;
-
-		let shortLinkStyle = {
-			display: 'none'
-		};
-
-		if (this.props.shortUrl) {
-			shortLinkStyle = {
-				display: 'block'
-			};
-		}
 
 		return (
 			<>
@@ -48,7 +39,7 @@ class ShortUrl extends Component {
 						<Button className="m-4">Shorten!</Button>
 					</FormGroup>
 				</Form>
-				<div style={shortLinkStyle}>
+				<div >
 					<h3>Your link now looks like this:</h3>
 					<a href={shortLink}>{shortLink}</a>
 				</div>
