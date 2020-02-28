@@ -9,12 +9,15 @@ import thunkMiddleware from 'redux-thunk';
 import reducer from './store/reducer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter} from "react-router-dom";
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 
 const app = (
 	<Provider store={store}>
-		<App/>
+		<BrowserRouter>
+			<App/>
+		</BrowserRouter>
 	</Provider>
 );
 
